@@ -15,6 +15,18 @@ export class SubmitFeedbackService{
     async execute(request: SubmitFeedbackServiceRequest){
         const {type, comment, screenshot} = request;//retornado valores da tabela do bd
 
+        if (!type){
+            throw new Error('Tipe is required')
+        }
+
+        if (!comment){
+            throw new Error('Tipe is required')
+        }
+
+        if(screenshot && ! screenshot.startsWith('data:image/png;base64')){//se a foto nao começar com data:image/png;base64 retorna erro
+            throw new Error('Invalid screenshot format.')
+        }
+
         await this.feedbacksRepository.create({
             type,
             comment,
