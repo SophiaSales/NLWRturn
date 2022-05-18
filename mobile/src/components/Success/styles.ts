@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     image: {
         width: 36,
         height: 36,
-        marginTop: 42,
+        marginTop: 32,
         marginBottom: 10,
     },
     title: {
